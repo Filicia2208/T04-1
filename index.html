@@ -28,10 +28,43 @@
 			background: #d9eff5;
 			box-shadow: 0 8px 24px rgb(47 67 43 / 12%);
 		}
+
+		#scene-original,
+		#scene-annotated-figure {
+			margin: 0 0 24px;
+		}
+
+		#scene-original figcaption,
+		#scene-annotated-figure figcaption {
+			margin-top: 8px;
+			color: #38523a;
+			text-align: center;
+		}
+
+		#scene-annotated #annotations {
+			font-family: sans-serif;
+			font-size: 12px;
+			fill: #333;
+			stroke: #999;
+			stroke-width: 1;
+			pointer-events: none;
+		}
+
+		#scene-annotated #annotations text {
+			fill: #333;
+			stroke: none;
+		}
+
+		#scene-annotated #annotations line {
+			fill: none;
+			stroke: #666;
+			stroke-width: 1;
+		}
 	</style>
 </head>
 <body>
 	<main>
+		<figure id="scene-original">
 		<svg viewBox="0 0 800 500" role="img" aria-labelledby="scene-title scene-desc" xmlns="http://www.w3.org/2000/svg">
 			<title id="scene-title">T04 – SVG House &amp; Garden</title>
 			<desc id="scene-desc">A sunny country garden with a white cloud, leafy tree, red-roofed house, fence, flowers, and a winding path through green grass.</desc>
@@ -93,6 +126,99 @@
 
 			<text x="400" y="477" text-anchor="middle" fill="#38523a" font-size="20">Home in the garden</text>
 		</svg>
+			<figcaption>Original scene</figcaption>
+		</figure>
+
+		<figure id="scene-annotated-figure">
+		<svg id="scene-annotated" viewBox="0 0 800 500" role="img" aria-labelledby="scene-annotated-title scene-annotated-desc" xmlns="http://www.w3.org/2000/svg">
+			<title id="scene-annotated-title">T04 – SVG House &amp; Garden, annotated</title>
+			<desc id="scene-annotated-desc">The original sunny house and garden scene with labels identifying example SVG shape attributes.</desc>
+
+			<!-- Sky and lawn -->
+			<rect x="0" y="0" width="800" height="320" fill="#bfe7f1" />
+			<rect x="0" y="320" width="800" height="180" fill="#8fbd68" />
+
+			<!-- Sun and cloud -->
+			<circle cx="690" cy="82" r="42" fill="#ffd45c" />
+			<ellipse cx="160" cy="94" rx="48" ry="24" fill="#fff" />
+			<circle cx="137" cy="84" r="22" fill="#fff" />
+			<circle cx="166" cy="74" r="29" fill="#fff" />
+			<circle cx="190" cy="88" r="20" fill="#fff" />
+
+			<!-- Tree -->
+			<rect x="105" y="238" width="34" height="112" rx="5" fill="#855333" />
+			<circle cx="122" cy="205" r="52" fill="#4f8e52" />
+			<circle cx="88" cy="225" r="31" fill="#68a85c" />
+			<circle cx="154" cy="225" r="34" fill="#5c9a54" />
+
+			<!-- House body, chimney, and roof -->
+			<rect x="291" y="222" width="276" height="176" fill="#f5dfb7" stroke="#7d563f" stroke-width="3" />
+			<rect x="488" y="143" width="42" height="80" fill="#a95645" stroke="#704638" stroke-width="3" />
+			<polygon points="266,230 429,117 592,230" fill="#b64e43" stroke="#704638" stroke-width="4" stroke-linejoin="round" />
+
+			<!-- Door and two windows -->
+			<rect x="397" y="300" width="66" height="98" fill="#80513a" stroke="#603f30" stroke-width="3" />
+			<circle cx="450" cy="350" r="4" fill="#f5d36b" />
+			<rect x="319" y="260" width="54" height="52" fill="#a8dbe7" stroke="#80513a" stroke-width="4" />
+			<line x1="346" y1="260" x2="346" y2="312" stroke="#80513a" stroke-width="3" />
+			<line x1="319" y1="286" x2="373" y2="286" stroke="#80513a" stroke-width="3" />
+			<rect x="485" y="260" width="54" height="52" fill="#a8dbe7" stroke="#80513a" stroke-width="4" />
+			<line x1="512" y1="260" x2="512" y2="312" stroke="#80513a" stroke-width="3" />
+			<line x1="485" y1="286" x2="539" y2="286" stroke="#80513a" stroke-width="3" />
+
+			<!-- Winding garden path -->
+			<path d="M 423 398 C 427 425, 486 431, 469 500 L 321 500 C 354 457, 375 431, 370 398 Z" fill="#d9c49a" />
+
+			<!-- Fence across the garden -->
+			<polyline points="0,358 0,335 24,335 24,358 48,358 48,335 72,335 72,358 96,358 96,335 120,335 120,358 144,358 144,335 168,335 168,358 192,358 192,335 216,335 216,358 240,358 240,335 264,335 264,358 288,358 288,335 312,335 312,358 336,358" fill="none" stroke="#f4ead3" stroke-width="7" stroke-linejoin="round" />
+			<line x1="0" y1="344" x2="336" y2="344" stroke="#f4ead3" stroke-width="5" />
+
+			<!-- Flowers -->
+			<line x1="625" y1="403" x2="625" y2="446" stroke="#447b42" stroke-width="4" />
+			<circle cx="625" cy="398" r="8" fill="#e66b79" />
+			<circle cx="615" cy="398" r="6" fill="#f28a91" />
+			<circle cx="635" cy="398" r="6" fill="#f28a91" />
+			<circle cx="625" cy="388" r="6" fill="#f28a91" />
+			<circle cx="625" cy="408" r="6" fill="#f28a91" />
+			<circle cx="625" cy="398" r="4" fill="#ffd45c" />
+			<line x1="678" y1="416" x2="678" y2="454" stroke="#447b42" stroke-width="4" />
+			<circle cx="678" cy="411" r="7" fill="#f1a340" />
+			<circle cx="669" cy="411" r="5" fill="#ffd45c" />
+			<circle cx="687" cy="411" r="5" fill="#ffd45c" />
+			<circle cx="678" cy="402" r="5" fill="#ffd45c" />
+			<circle cx="678" cy="420" r="5" fill="#ffd45c" />
+			<circle cx="678" cy="411" r="3" fill="#8e643e" />
+
+			<text x="400" y="477" text-anchor="middle" fill="#38523a" font-size="20">Home in the garden</text>
+
+			<g id="annotations" aria-hidden="true">
+				<text x="565" y="28">circle: cx=690, cy=82, r=42</text>
+				<line x1="650" y1="33" x2="675" y2="53" />
+
+				<text x="14" y="130">ellipse: cx=160, cy=94, rx=48, ry=24</text>
+				<line x1="132" y1="124" x2="145" y2="112" />
+
+				<text x="542" y="179">rect: x=488, y=143, width=42, height=80</text>
+				<line x1="540" y1="175" x2="528" y2="171" />
+
+				<text x="282" y="207">polygon: 266,230 429,117 592,230</text>
+				<line x1="398" y1="202" x2="429" y2="126" />
+
+				<text x="195" y="315">line: (346,260) → (346,312)</text>
+				<line x1="340" y1="309" x2="346" y2="287" />
+
+				<text x="14" y="328">polyline: 0,358 0,335 24,335 24,358</text>
+				<line x1="155" y1="324" x2="160" y2="340" />
+
+				<text x="14" y="483">path: M423,398 C427,425 486,431,469,500 L321,500</text>
+				<line x1="270" y1="479" x2="338" y2="460" />
+
+				<text x="530" y="490">text: x=400, y=477</text>
+				<line x1="526" y1="484" x2="446" y2="477" />
+			</g>
+		</svg>
+			<figcaption>Annotated scene (Step 2)</figcaption>
+		</figure>
 	</main>
 </body>
 </html>
