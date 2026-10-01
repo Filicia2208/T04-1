@@ -60,6 +60,62 @@
 			stroke: #666;
 			stroke-width: 1;
 		}
+
+		#scene-adjusted-figure {
+			margin: 0 0 24px;
+		}
+
+		#scene-adjusted-figure figcaption {
+			margin-top: 8px;
+			color: #38523a;
+			text-align: center;
+		}
+
+		/* Darker outlines sharpen the house and foliage; fence dashes stay local. */
+		#scene-adjusted .tree-trunk {
+			fill: #68452e;
+			stroke: #493321;
+			stroke-width: 2;
+		}
+
+		#scene-adjusted .tree-canopy {
+			stroke: #245936;
+			stroke-width: 2;
+		}
+
+		#scene-adjusted .house-wall {
+			fill: #fff0cf;
+			stroke: #59402f;
+			stroke-width: 4;
+		}
+
+		#scene-adjusted .house-trim {
+			stroke: #503628;
+			stroke-width: 4;
+		}
+
+		#scene-adjusted .house-window {
+			stroke: #49382d;
+			stroke-width: 5;
+		}
+
+		#scene-adjusted .adjusted-fence {
+			stroke: #fffdf1;
+			stroke-width: 5;
+			stroke-dasharray: 9 6;
+		}
+
+		#scene-adjusted .stone-path {
+			fill: #cec5ae;
+			stroke: #736d60;
+			stroke-width: 2;
+		}
+
+		#scene-adjusted .stone-joints {
+			fill: none;
+			stroke: #958b76;
+			stroke-width: 2;
+		}
 	</style>
 </head>
 <body>
@@ -218,6 +274,85 @@
 			</g>
 		</svg>
 			<figcaption>Annotated scene (Step 2)</figcaption>
+		</figure>
+
+		<figure id="scene-adjusted-figure">
+		<svg id="scene-adjusted" viewBox="0 0 800 500" role="img" aria-labelledby="scene-adjusted-title scene-adjusted-desc" xmlns="http://www.w3.org/2000/svg">
+			<title id="scene-adjusted-title">T04 – SVG House &amp; Garden, adjusted</title>
+			<desc id="scene-adjusted-desc">The house and garden scene with adjusted spacing, a stone path to the door, a mailbox, dashed fencing, and light chimney smoke.</desc>
+
+			<!-- Sky and lawn -->
+			<rect x="0" y="0" width="800" height="320" fill="#c8e8f0" />
+			<rect x="0" y="320" width="800" height="180" fill="#82b35f" />
+
+			<!-- Sun and cloud -->
+			<circle cx="690" cy="82" r="42" fill="#ffd45c" />
+			<ellipse cx="160" cy="94" rx="48" ry="24" fill="#fff" />
+			<circle cx="137" cy="84" r="22" fill="#fff" />
+			<circle cx="166" cy="74" r="29" fill="#fff" />
+			<circle cx="190" cy="88" r="20" fill="#fff" />
+
+			<!-- A small shift opens the gap between the tree and house. -->
+			<g transform="translate(12 0)">
+				<rect class="tree-trunk" x="105" y="238" width="34" height="112" rx="5" fill="#855333" />
+				<circle class="tree-canopy" cx="122" cy="205" r="52" fill="#4f8e52" />
+				<circle class="tree-canopy" cx="88" cy="225" r="31" fill="#68a85c" />
+				<circle class="tree-canopy" cx="154" cy="225" r="34" fill="#5c9a54" />
+			</g>
+
+			<!-- The house moves slightly right; smoke rises from its chimney. -->
+			<g transform="translate(8 0)">
+				<rect class="house-wall" x="291" y="222" width="276" height="176" fill="#f5dfb7" stroke="#7d563f" stroke-width="3" />
+				<rect class="house-trim" x="488" y="143" width="42" height="80" fill="#a95645" stroke="#704638" stroke-width="3" />
+				<polygon class="house-trim" points="266,230 429,117 592,230" fill="#b64e43" stroke="#704638" stroke-width="4" stroke-linejoin="round" />
+				<rect class="house-trim" x="397" y="300" width="66" height="98" fill="#80513a" stroke="#603f30" stroke-width="3" />
+				<circle cx="450" cy="350" r="4" fill="#f5d36b" />
+				<rect class="house-window" x="319" y="260" width="54" height="52" fill="#a8dbe7" stroke="#80513a" stroke-width="4" />
+				<line class="house-trim" x1="346" y1="260" x2="346" y2="312" stroke="#80513a" stroke-width="3" />
+				<line class="house-trim" x1="319" y1="286" x2="373" y2="286" stroke="#80513a" stroke-width="3" />
+				<rect class="house-window" x="485" y="260" width="54" height="52" fill="#a8dbe7" stroke="#80513a" stroke-width="4" />
+				<line class="house-trim" x1="512" y1="260" x2="512" y2="312" stroke="#80513a" stroke-width="3" />
+				<line class="house-trim" x1="485" y1="286" x2="539" y2="286" stroke="#80513a" stroke-width="3" />
+				<g fill="#fff" opacity="0.58">
+					<ellipse cx="515" cy="132" rx="9" ry="6" />
+					<ellipse cx="526" cy="116" rx="12" ry="8" />
+					<ellipse cx="537" cy="96" rx="10" ry="7" />
+				</g>
+			</g>
+
+			<!-- Original garden path and dashed fence. -->
+			<path d="M 423 398 C 427 425, 486 431, 469 500 L 321 500 C 354 457, 375 431, 370 398 Z" fill="#d9c49a" />
+			<polyline class="adjusted-fence" points="0,358 0,335 24,335 24,358 48,358 48,335 72,335 72,358 96,358 96,335 120,335 120,358 144,358 144,335 168,335 168,358 192,358 192,335 216,335 216,358 240,358 240,335 264,335 264,358 288,358 288,335 312,335 312,358 336,358" fill="none" stroke="#f4ead3" stroke-width="7" stroke-linejoin="round" />
+			<line class="adjusted-fence" x1="0" y1="344" x2="336" y2="344" stroke="#f4ead3" stroke-width="5" />
+
+			<!-- Curved stone paving joins the shifted front door. -->
+			<path class="stone-path" d="M 420 398 C 422 427, 486 438, 474 500 L 338 500 C 383 458, 393 426, 397 398 Z" />
+			<path class="stone-joints" d="M 393 430 Q 435 441, 480 431 M 374 466 Q 424 480, 480 462" />
+
+			<!-- Mailbox beside the path, with a short post. -->
+			<rect x="521" y="398" width="7" height="54" fill="#68452e" />
+			<rect x="504" y="375" width="42" height="27" rx="2" fill="#a84336" stroke="#56382e" stroke-width="2" />
+			<polygon points="500,377 525,360 550,377" fill="#783d32" stroke="#56382e" stroke-width="2" stroke-linejoin="round" />
+
+			<!-- Garden flowers -->
+			<line x1="625" y1="403" x2="625" y2="446" stroke="#365d36" stroke-width="5" />
+			<circle cx="625" cy="398" r="8" fill="#e66b79" />
+			<circle cx="615" cy="398" r="6" fill="#f28a91" />
+			<circle cx="635" cy="398" r="6" fill="#f28a91" />
+			<circle cx="625" cy="388" r="6" fill="#f28a91" />
+			<circle cx="625" cy="408" r="6" fill="#f28a91" />
+			<circle cx="625" cy="398" r="4" fill="#ffd45c" />
+			<line x1="678" y1="416" x2="678" y2="454" stroke="#365d36" stroke-width="5" />
+			<circle cx="678" cy="411" r="7" fill="#f1a340" />
+			<circle cx="669" cy="411" r="5" fill="#ffd45c" />
+			<circle cx="687" cy="411" r="5" fill="#ffd45c" />
+			<circle cx="678" cy="402" r="5" fill="#ffd45c" />
+			<circle cx="678" cy="420" r="5" fill="#ffd45c" />
+			<circle cx="678" cy="411" r="3" fill="#8e643e" />
+
+			<text x="400" y="477" text-anchor="middle" fill="#29462e" font-size="20">Home in the garden</text>
+		</svg>
+			<figcaption>Adjusted scene (Step 3)</figcaption>
 		</figure>
 	</main>
 </body>
